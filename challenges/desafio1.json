@@ -1,7 +1,7 @@
 {
   "tabela_pessoas_usuarias": "users",
   "coluna_pessoas_usuarias": "user_name",
-  "tabela_plano": "plans",
+  "tabela_plano": "plan",
   "coluna_plano": "plan_name",
   "tabela_historico_de_reproducoes": "playback_history",
   "coluna_historico_de_reproducoes": "music_id",
