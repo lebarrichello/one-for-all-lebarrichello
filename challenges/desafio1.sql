@@ -9,7 +9,7 @@ CREATE TABLE SpotifyClone.plan (
 
 INSERT INTO SpotifyClone.plan (plan_name, plan_value)
 VALUES
-    ('Gratuito', 0),
+    ('Gratuito', 0.00),
     ('Familiar', 7.99),
     ('Universitário', 5.99),
     ('Pessoal', 6.99);
@@ -41,18 +41,18 @@ CREATE TABLE SpotifyClone.users (
         REFERENCES plan (plan_id)
 )  ENGINE=INNODB;
 
-INSERT INTO SpotifyClone.users (user_name, user_age,plan_signature_date,plan_id)
+INSERT INTO SpotifyClone.users (user_name, user_age,plan_id,plan_signature_date)
 VALUES
-    ('Barbara Liskov',82,20191020,1),
-	('Robert Cecil Martin',58,20170106,1),
-	('Ada Lovelace',37,20171230,2),
-	('Martin Fowler',46,20170117,2),
-	('Sandi Metz',58,20180429,2),
-	('Paulo Freire',19,20180214,3),
-	('Bell Hooks',26,20180105,3),
-	('Christopher Alexander',85,20190605,4),
-	('Judith Butler',45,20200513,4),
-	('Jorge Amado',58,20170217,4);
+  ('Barbara Liskov', 82, 1, '2019-10-20'),
+  ('Robert Cecil Martin', 58, 1, '2017-01-06'),
+  ('Ada Lovelace', 37, 2, '2017-12-30'),
+  ('Martin Fowler', 46, 2, '2017-01-17'),
+  ('Sandi Metz', 58, 2, '2018-04-29'),
+  ('Paulo Freire', 19, 3, '2018-02-14'),
+  ('Bell Hooks', 26, 3, '2018-01-05'),
+  ('Christopher Alexander', 85, 4, '2019-06-05'),
+  ('Judith Butler', 45, 4, '2020-05-13'),
+  ('Jorge Amado', 58, 4, '2017-02-17');
  
 
 CREATE TABLE SpotifyClone.following_artists (
@@ -116,18 +116,18 @@ CREATE TABLE SpotifyClone.songs (
         REFERENCES albums (album_id)
 )  ENGINE=INNODB;
 
-INSERT INTO SpotifyClone.songs(music_name, music_time,album_id)
+INSERT INTO SpotifyClone.songs(album_id,music_name, music_time)
 VALUES
-    ('BREAK MY SOUL',279,1),
-	('VIRGOS GROOVE',369,1),
-    ('ALIEN SUPERSTAR',116,1),
-    ('Dont Stop Me Now',203,2),
-    ('Under Pressure',152,3),
-    ('Como Nossos Pais',105,4),
-    ('O Medo de Amar é o Medo de Ser Livre',207,5),
-    ('Samba em Paris',267,6),
-    ('The Bards Song',244,7),
-    ('Feeling Good',100,8);
+  (1, 'BREAK MY SOUL', 279),
+  (1, "VIRGO'S GROOVE", 369),
+  (1, 'ALIEN SUPERSTAR', 116),
+  (2, "Don't Stop Me Now", 203),
+  (3, 'Under Pressure', 152),
+  (4, 'Como Nossos Pais', 105),
+  (5, 'O Medo de Amar é o Medo de Ser Livre', 207),
+  (6, 'Samba em Paris', 267),
+  (7, "The Bard's Song", 244),
+  (8, 'Feeling Good', 100);
   
     
     
@@ -143,22 +143,22 @@ CREATE TABLE SpotifyClone.playback_history (
     UNIQUE KEY (user_id , music_id)
 )  ENGINE=INNODB;
 
-INSERT INTO SpotifyClone.playback_history (user_id, reproduction_date, music_id)
+INSERT INTO SpotifyClone.playback_history (user_id,music_id,reproduction_date)
 VALUES
-	(1, '2022-02-28 10:45:55', 1),
-	(1, '2020-05-02 05:30:35', 2),
-	(1, '2020-03-06 11:22:33', 3),
-	(2, '2022-08-05 08:05:17', 3),
-	(2, '2020-01-02 07:40:33', 6),
-	(3, '2020-11-13 16:55:13', 3),
-	(3, '2020-12-05 18:38:30', 2),
-	(4, '2021-08-15 17:10:10', 1),
-	(5, '2022-01-09 01:44:33', 1),
-	(5, '2020-08-06 15:23:43', 5),
-	(6, '2017-01-24 00:31:17', 6),
-	(6, '2017-10-12 12:35:20', 7),
-	(7, '2011-12-15 22:30:49', 8),
-	(8, '2012-03-17 14:56:41', 8),
-	(9, '2022-02-24 21:14:22', 9),
-	(10, '2015-12-13 08:30:22', 10);
+  (1, 8, '2022-02-28 10:45:55'),
+  (1, 2, '2020-05-02 05:30:35'),
+  (1, 10, '2020-03-06 11:22:33'),
+  (2, 10, '2022-08-05 08:05:17'),
+  (2, 7, '2020-01-02 07:40:33'),
+  (3, 10, '2020-11-13 16:55:13'),
+  (3, 2, '2020-12-05 18:38:30'),
+  (4, 8, '2021-08-15 17:10:10'),
+  (5, 8, '2022-01-09 01:44:33'),
+  (5, 5, '2020-08-06 15:23:43'),
+  (6, 7, '2017-01-24 00:31:17'),
+  (6, 1, '2017-10-12 12:35:20'),
+  (7, 4, '2011-12-15 22:30:49'),
+  (8, 4, '2012-03-17 14:56:41'),
+  (9, 9, '2022-02-24 21:14:22'),
+  (10, 3, '2015-12-13 08:30:22');
 
