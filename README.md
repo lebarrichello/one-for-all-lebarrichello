@@ -1,6 +1,6 @@
 # PROJETO ONE FOR ALL 
 
-Projeto desenvolvido no módulo de Back-End da Trybe
+Projeto desenvolvido no módulo de Back-End do curso de desenvolvimento web da  Trybe
 
 ## 🎯 Objetivo
 
